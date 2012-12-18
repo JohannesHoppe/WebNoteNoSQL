@@ -5,7 +5,7 @@ It comes in three flavors:
 
 * [WebNoteAOP](https://github.com/JohannesHoppe/WebNoteAOP) – **AOP** (Aspect Oriented Programming) with the PostSharp framework
 * [WebNoteNoSQL](https://github.com/JohannesHoppe/WebNoteNoSQL) – **NoSQL** databases vs SQL (MS SQL, Redis, MongoDB and RavenDB)
-* [WebNoteSinglePage](https://github.com/JohannesHoppe/WebNoteSinglePage) – **JavaScript** best practices for creating a Single Page Application (jQuery, RequireJS, KnockoutJS)
+* [WebNoteSinglePage](https://github.com/JohannesHoppe/WebNoteSinglePage) – **JavaScript** best practices for a Single Page Application (jQuery, RequireJS, KnockoutJS)
 
 
 ![WebNoteNoSQL](https://raw.github.com/JohannesHoppe/WebNoteNoSQL/master/WebNoteNoSQL.png)
