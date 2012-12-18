@@ -10,7 +10,7 @@ It comes in three flavors:
 
 ![WebNoteNoSQL](https://raw.github.com/JohannesHoppe/WebNoteNoSQL/master/WebNoteNoSQL.png)
 
-WebNoteNoSQL is sample project that demonstrates the usage of the
+WebNoteNoSQL is sample project that demonstrates the usage of
 
 * [Entity Framework](http://msdn.microsoft.com/en-us/data/ef.aspx) (MS SQL)
 * [Redis](http://redis.io/)
