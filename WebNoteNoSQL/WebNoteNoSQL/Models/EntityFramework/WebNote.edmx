@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WebNoteDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="WebNoteDatabaseModelStoreContainer">
+          <EntitySet Name="Category" EntityType="WebNoteDatabaseModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CategoryToNode" EntityType="WebNoteDatabaseModel.Store.CategoryToNode" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Note" EntityType="WebNoteDatabaseModel.Store.Note" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CategoryToNode_Category" Association="WebNoteDatabaseModel.Store.FK_CategoryToNode_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CategoryToNode" EntitySet="CategoryToNode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryToNode_Note" Association="WebNoteDatabaseModel.Store.FK_CategoryToNode_Note">
+            <End Role="Note" EntitySet="Note" />
+            <End Role="CategoryToNode" EntitySet="CategoryToNode" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Color" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CategoryToNode">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="NoteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Message" Type="ntext" />
+          <Property Name="Added" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CategoryToNode_Category">
+          <End Role="Category" Type="WebNoteDatabaseModel.Store.Category" Multiplicity="1" />
+          <End Role="CategoryToNode" Type="WebNoteDatabaseModel.Store.CategoryToNode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="CategoryToNode">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryToNode_Note">
+          <End Role="Note" Type="WebNoteDatabaseModel.Store.Note" Multiplicity="1" />
+          <End Role="CategoryToNode" Type="WebNoteDatabaseModel.Store.CategoryToNode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Note">
+              <PropertyRef Name="NoteId" />
+            </Principal>
+            <Dependent Role="CategoryToNode">
+              <PropertyRef Name="NoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebNoteDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WebNote" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="WebNoteDatabaseModel.Category" />
+          <EntitySet Name="Notes" EntityType="WebNoteDatabaseModel.Note" />
+          <AssociationSet Name="CategoryToNode" Association="WebNoteDatabaseModel.CategoryToNode">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Notes" Relationship="WebNoteDatabaseModel.CategoryToNode" FromRole="Category" ToRole="Note" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Added" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="WebNoteDatabaseModel.CategoryToNode" FromRole="Note" ToRole="Category" />
+        </EntityType>
+        <Association Name="CategoryToNode">
+          <End Role="Category" Type="WebNoteDatabaseModel.Category" Multiplicity="*" />
+          <End Role="Note" Type="WebNoteDatabaseModel.Note" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebNoteDatabaseModelStoreContainer" CdmEntityContainer="WebNote">
+          <EntitySetMapping Name="Categories"><EntityTypeMapping TypeName="WebNoteDatabaseModel.Category"><MappingFragment StoreEntitySet="Category">
+            <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Color" ColumnName="Color" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Notes"><EntityTypeMapping TypeName="WebNoteDatabaseModel.Note"><MappingFragment StoreEntitySet="Note">
+            <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Message" ColumnName="Message" />
+            <ScalarProperty Name="Added" ColumnName="Added" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="CategoryToNode" TypeName="WebNoteDatabaseModel.CategoryToNode" StoreEntitySet="CategoryToNode">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+            </EndProperty>
+            <EndProperty Name="Note">
+              <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="WebNote">
+        <EntityTypeShape EntityType="WebNoteDatabaseModel.Category" Width="1.5" PointX="0.75" PointY="1" Height="1.7879850260416668" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebNoteDatabaseModel.Note" Width="1.5" PointX="3" PointY="0.875" Height="1.9802864583333335" IsExpanded="true" />
+        <AssociationConnector Association="WebNoteDatabaseModel.CategoryToNode" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.8939925130208333" />
+          <ConnectorPoint PointX="3" PointY="1.8939925130208333" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
