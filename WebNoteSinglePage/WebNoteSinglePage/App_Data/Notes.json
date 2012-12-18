@@ -1,3 +1,0 @@
-{ "_id" : { "$oid" : "50c0a882cc9a366d241d02a8" }, "Title" : "Testeintrag", "Message" : "Ein gruener Postit\nmit Linebreak", "Added" : { "$date" : 1339538400000 }, "Categories" : [ { "Name" : "Normal Importance", "Color" : "green" }, { "Name" : "Private", "Color" : "gray" } ] }
-{ "_id" : { "$oid" : "50c0a882cc9a366d241d02a9" }, "Title" : "Testeintrag 2", "Message" : "Ein roter Postit", "Added" : { "$date" : 1339624800000 }, "Categories" : [ { "Name" : "High Importance", "Color" : "red" } ] }
-{ "_id" : { "$oid" : "50c0a882cc9a366d241d02aa" }, "Title" : "Testeintrag 3", "Message" : "Ein privater Postit", "Added" : { "$date" : 1339624800000 }, "Categories" : [ { "Name" : "Private", "Color" : "gray" } ] }

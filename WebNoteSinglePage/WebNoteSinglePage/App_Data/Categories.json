@@ -1,3 +1,0 @@
-{ "_id" : { "$oid" : "50c1d65e0b41d70ab5eaecd7" }, "Name" : "Normal Importance", "Color" : "green" }
-{ "_id" : { "$oid" : "50c1d65e0b41d70ab5eaecd8" }, "Name" : "High Importance", "Color" : "red" }
-{ "_id" : { "$oid" : "50c1d65e0b41d70ab5eaecd9" }, "Name" : "Private", "Color" : "gray" }
