@@ -1,0 +1,13 @@
+WebNoteAOP/**/obj
+WebNoteAOP/**/bin
+
+WebNoteNoSQL/**/obj
+WebNoteNoSQL/**/bin
+
+WebNoteSinglePage/**/obj
+WebNoteSinglePage/**/bin
+
+packages/
+*.user
+*.suo
+_Resharper*
