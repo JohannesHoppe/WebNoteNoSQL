@@ -1,0 +1,1 @@
+Please review the .mdf file in the WebNoteNoSQL\App_Data folder that will be attached to SQLEXPRESS.

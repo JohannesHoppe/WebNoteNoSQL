@@ -1,0 +1,1 @@
+The NuGet package already delivers all required binaries!
