@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -103,6 +104,7 @@ namespace WebNoteNoSQL.Models.EntityFramework
         private ObjectSet<Note> _Notes;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -122,11 +124,11 @@ namespace WebNoteNoSQL.Models.EntityFramework
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -155,6 +157,7 @@ namespace WebNoteNoSQL.Models.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -233,6 +236,7 @@ namespace WebNoteNoSQL.Models.EntityFramework
         partial void OnColorChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -259,6 +263,7 @@ namespace WebNoteNoSQL.Models.EntityFramework
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -287,6 +292,7 @@ namespace WebNoteNoSQL.Models.EntityFramework
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -389,6 +395,7 @@ namespace WebNoteNoSQL.Models.EntityFramework
         partial void OnAddedChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -415,8 +422,10 @@ namespace WebNoteNoSQL.Models.EntityFramework
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }
