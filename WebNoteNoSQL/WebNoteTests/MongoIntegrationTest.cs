@@ -1,20 +1,33 @@
-﻿using Mongo2Go;
+﻿using FluentAssertions;
+using Machine.Specifications;
+using Mongo2Go;
 using MongoDB.Driver;
 
+// ReSharper disable UnusedMember.Local
 namespace WebNoteTests
 {
-    public class MongoIntegrationTest
+    [Subject("Hello Mongo2Go")]
+    public class When_deserializing_TestDocument
     {
-        internal static MongoDbRunner _runner;
-        internal static MongoCollection<TestDocument> _collection;
+        static MongoDbRunner runner;
+        static MongoCollection<TestDocument> collection;
+        static TestDocument actual;
 
-        internal static void CreateConnection()
+        Establish context = () =>
         {
-            _runner = MongoDbRunner.Start();
+            runner = MongoDbRunner.Start(); // just one line, that's all we have to do!
 
-            MongoServer server = new MongoClient(_runner.ConnectionString).GetServer();
-            MongoDatabase database = server.GetDatabase("IntegrationTest");
-            _collection = database.GetCollection<TestDocument>("TestCollection");
-        }
+            collection = new MongoClient(runner.ConnectionString)
+                .GetServer()
+                .GetDatabase("TestDatabase")
+                .GetCollection<TestDocument>("TestCollection");
+
+            collection.Insert(TestDocument.GetDummyData());
+        };
+
+        Because of = () => actual = collection.FindOneAs<TestDocument>();
+
+        It should_hava_equal_data = () => actual.ShouldHave().AllPropertiesBut(d => d.Id).EqualTo(TestDocument.GetDummyData());
     }
 }
+// ReSharper restore UnusedMember.Local

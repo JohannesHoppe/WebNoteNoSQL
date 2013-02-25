@@ -20,7 +20,7 @@ namespace WebNoteTests
 
         public List<string> ListTest { get; set; }
 
-        public static TestDocument DummyData1()
+        public static TestDocument GetDummyData()
         {
             return new TestDocument
                 {
@@ -30,24 +30,5 @@ namespace WebNoteTests
                     ListTest = new List<string> {"I", "am", "a", "list", "of", "strings"}
                 };
         }
-
-        public static TestDocument DummyData2()
-        {
-            return new TestDocument
-            {
-                StringTest = "Foo",
-                IntTest = 23,
-            };
-        }
-
-        public static TestDocument DummyData3()
-        {
-            return new TestDocument
-            {
-                StringTest = "Bar",
-                IntTest = 77,
-            };
-        }
-
     }
 }
