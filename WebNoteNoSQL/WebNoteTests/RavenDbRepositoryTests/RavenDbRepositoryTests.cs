@@ -47,7 +47,7 @@ namespace WebNoteTests.RavenDbRepositoryTests
         public void ShouldReadOne() 
         {
             // Arrange
-            string id = "Id";
+            const string id = "Id";
             var expectedNote = new NoteWithCategories { Id = id, Message = "Message" };
 
             // Depedent-On Component
@@ -70,7 +70,7 @@ namespace WebNoteTests.RavenDbRepositoryTests
         public void ShouldCreateANoteAndAddTheDate()
         {
             // Arrange
-            var id = "id";
+            const string id = "id";
             var today = DateTime.Now;
             var note = new Note { Id = id, Message = "Message" };
             var categories = new[] { new Category { Name = "Important" } };
@@ -93,7 +93,7 @@ namespace WebNoteTests.RavenDbRepositoryTests
         public void ShouldUpdateANote()
         {
             // Arrange
-            var id = "123";
+            const string id = "123";
             var note = new Note { Id = id, Message = "Message" };
             var categories = new[] { new Category { Name = "Important" } };
 
@@ -114,7 +114,7 @@ namespace WebNoteTests.RavenDbRepositoryTests
         public void ShouldDeleteANote()
         {
             // Arrange
-            string id = "id";
+            const string id = "id";
             var note = new NoteWithCategories { Id = id, Message = "Message" };
 
             // Depedent-On Component
@@ -187,7 +187,6 @@ namespace WebNoteTests.RavenDbRepositoryTests
         public void ShouldLoadAllCateogoriesIfNoIdsWereProvided()
         {
             // Arrange
-            string[] ids = null;
             var category = new Category { Name = "Important" };
             var expectedCategories = new List<Category> { category };
 
@@ -203,7 +202,7 @@ namespace WebNoteTests.RavenDbRepositoryTests
             var repository = new RavenDbRepository(session);
 
             // Act
-            IEnumerable<Category> categories = repository.GetAllCategories(ids);
+            IEnumerable<Category> categories = repository.GetAllCategories(null);
 
             // Assert
             Assert.That(categories, Is.EquivalentTo(expectedCategories));

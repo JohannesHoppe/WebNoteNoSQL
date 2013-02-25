@@ -34,20 +34,20 @@ namespace WebNoteTests.ExplorativeTests.MongoDb
             // Let's create a couple of documents!
             var note = new Note
                            {
-                               Title = "Mongo is fun for developers!",
+                               Title = "MongoDB is fun for developers!",
                                Message = "With Mongo Documents, there is hardly any need for excessive OR Mapping, since documents resemble objects closer that relations do!"
                            };
 
             var note2 = new Note
                             {
                                 Title = "Hello",
-                                Message = "Welcome to VSone!"
+                                Message = "Welcome to MongoDB!"
                             };
 
             var noteWithCategories = new NoteWithCategories
                                          {
                                              Title = "RavenDb",
-                                             Message = "RavenDb is also pretty cool!",
+                                             Message = "RavenDb is also pretty cool, too!",
                                              Categories = new[] { new Category { Name = "Very Important" } }
                                          };
 
