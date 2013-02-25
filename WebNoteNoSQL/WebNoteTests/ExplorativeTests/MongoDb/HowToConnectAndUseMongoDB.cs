@@ -26,7 +26,8 @@ namespace WebNoteTests.ExplorativeTests.MongoDb
         public void DoSomeActions()
         {
             // A connection is done like this!
-            var server = MongoServer.Create(ConnectionString);
+            MongoClient client = new MongoClient(ConnectionString);
+            var server = client.GetServer();
 
             // A new database does not exist. 
             Assert.That(server.DatabaseExists(DatabaseName), Is.False);
@@ -47,7 +48,8 @@ namespace WebNoteTests.ExplorativeTests.MongoDb
         [Test]
         public void CleanUpAgain()
         {
-            var server = MongoServer.Create(ConnectionString);
+            var client = new MongoClient(ConnectionString);
+            var server = client.GetServer();
 
             // Remove the database
             server.DropDatabase(DatabaseName);

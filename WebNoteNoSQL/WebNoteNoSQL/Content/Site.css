@@ -54,7 +54,7 @@ p, ul
 ----------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6
 {
-    margin: 0px 0px 4px 0px;
+    margin: 0 0 4px 0;
     color: #5A5A5A;
     font-family: Georgia,Helvetica,Sans-serif;
     font-weight: normal;
@@ -107,7 +107,7 @@ first child of the left and right table columns */
 {
     height: 169px;
     width: 830px;
-    background: url("images/logo.png") no-repeat scroll right 45px;
+    /* background: url("images/logo.png") no-repeat scroll right 45px; */
 }
 
 #header h1
@@ -138,7 +138,7 @@ first child of the left and right table columns */
 
 fieldset 
 {
-    margin: 0px;
+    margin: 0;
     padding: 1em;
     border: none;
 }
@@ -307,7 +307,7 @@ textarea
 {
     list-style-type: none;
     margin: 0;
-    padding: 0px;
+    padding: 0;
 }
 
 /* drop shadow
@@ -340,7 +340,7 @@ textarea
 {
     background: #f8f8f8 none;
     padding: 10px;
-    margin: 0px 15px 0px 15px;
+    margin: 0 15px 0 15px;
 }
 
 
@@ -348,7 +348,7 @@ textarea
 .bigpostit
 {
     width: 360px;
-    margin: 30px 0px 0px 20px;
+    margin: 30px 0 0 20px;
     float: left;  
     font: 14px "Lucida Grande", "Lucida Sans Unicode" ,Arial,Verdana,sans-serif;
 }
@@ -429,7 +429,7 @@ textarea
   left:3px;
   line-height:39px;
   position:absolute;
-  top: 0px;
+  top: 0;
 }
 
 .sexy_date .month
@@ -452,6 +452,6 @@ textarea
     font-size: 1em;
     background-color: #E0E2BB;
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 15px;
 }

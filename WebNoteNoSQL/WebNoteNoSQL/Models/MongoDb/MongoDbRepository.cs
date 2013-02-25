@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using MongoDB.Bson;
@@ -28,7 +27,8 @@ namespace WebNoteNoSQL.Models.MongoDb
         public MongoDbRepository()
         {
             string connectionString = ConfigurationManager.ConnectionStrings[ConnectionStringName].ConnectionString;
-            server = MongoServer.Create(connectionString);
+            MongoClient client = new MongoClient(connectionString);
+            server = client.GetServer();
             database = server.GetDatabase(DatabaseName);
             notes = database.GetCollection(CollectionName);
             categories = database.GetCollection(CollectionNameCategories);

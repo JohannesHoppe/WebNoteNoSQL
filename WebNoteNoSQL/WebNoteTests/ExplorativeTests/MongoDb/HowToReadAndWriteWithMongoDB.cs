@@ -69,7 +69,8 @@ namespace WebNoteTests.ExplorativeTests.MongoDb
         [TestFixtureSetUp]
         public void StartAndInitialize()
         {
-            server = MongoServer.Create(ConnectionString);
+            var client = new MongoClient(ConnectionString);
+            server = client.GetServer();
             database = server.GetDatabase(DatabaseName);
         }
 
