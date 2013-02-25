@@ -1,12 +1,5 @@
-﻿using System.Linq;
-using NUnit.Framework;
-using Raven.Abstractions.Data;
-using Raven.Client;
-using Raven.Client.Document;
-using Raven.Client.Extensions;
-using WebNoteNoSQL.Code.DbStartScript;
-using WebNoteNoSQL.Models;
-using WebNoteTests.ExplorativeTests.Infrastructure;
+﻿using NUnit.Framework;
+using Raven.Client.Embedded;
 
 namespace WebNoteTests.ExplorativeTests.RavenDb
 {
