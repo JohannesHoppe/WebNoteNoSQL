@@ -169,6 +169,7 @@
     <Compile Include="Models\IWebNoteRepository.cs" />
     <Compile Include="Models\EntityFramework\EntityFrameworkRepository.cs" />
     <Compile Include="Models\MongoDb\MongoDbRepository.cs" />
+    <Compile Include="Models\MongoDb\MongoDbRepositoryLinq.cs" />
     <Compile Include="Models\RavenDb\RavenDbRepository.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Models\NoteWithCategories.cs" />

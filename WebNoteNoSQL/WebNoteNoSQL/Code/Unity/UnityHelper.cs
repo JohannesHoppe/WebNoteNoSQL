@@ -79,7 +79,7 @@ namespace WebNoteNoSQL.Code.Unity
             switch (engine)
             {
                 case "MongoDB":
-                    container.RegisterType<IWebNoteRepository, MongoDbRepository>()
+                    container.RegisterType<IWebNoteRepository, MongoDbRepositoryLinq>()
                              .RegisterInstance(typeof(DatabaseStartScript), DatabaseStartScript.ForMongoDb());
                     break;
 
