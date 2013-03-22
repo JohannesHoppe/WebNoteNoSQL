@@ -71,7 +71,7 @@ namespace WebNoteTests.ExplorativeTests.RavenDb
             // such as Raven/DocumentsByEntityName or Temp/{EntityName} that can be used for convenience!
 
             // Droping everything in the Notes collection
-            store.DatabaseCommands.ForDatabase(Database).DeleteByIndex("Temp/Notes", new IndexQuery());
+            store.DatabaseCommands.ForDatabase(Database).DeleteByIndex("Raven/DocumentsByEntityName", new IndexQuery());
         }
     }
 }

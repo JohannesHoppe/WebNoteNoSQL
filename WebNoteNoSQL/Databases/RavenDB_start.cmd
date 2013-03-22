@@ -3,6 +3,6 @@
 set DBPATH=c:\data
 IF EXIST %DBPATH% (echo .) ELSE (mkdir %DBPATH%)
 
-..\packages\RavenDB.1.0.888\server\Raven.Server.exe
+..\packages\RavenDB.Server.2.0.2330\tools\Raven.Server.exe
 
 pause
