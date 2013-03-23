@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using MongoDB.Bson;
@@ -37,52 +38,38 @@ namespace WebNoteNoSQL.Models.MongoDb
         public void Create(Note noteToAdd, IEnumerable<Category> newCategories)
         {
             NoteWithCategories note = NoteWithCategories.Convert(noteToAdd, newCategories);
-            notes.Insert(note);
+
+            throw new NotImplementedException();
         }
 
         public NoteWithCategories Read(string id)
         {
-            return (from n in notes.AsQueryable()
-                    where n.Id == id
-                    select n).First();
+            throw new NotImplementedException();
         }
 
         public IEnumerable<NoteWithCategories> ReadAll()
         {
-            return (from n in notes.AsQueryable()
-                    orderby n.Id ascending 
-                    select n).ToList();
+            throw new NotImplementedException();
         }
 
         public void Update(Note noteToEdit, IEnumerable<Category> newCategories)
         {
-            NoteWithCategories note = Read(noteToEdit.Id);
-
-            note.Title = noteToEdit.Title;
-            note.Message = noteToEdit.Message;
-            note.Categories = newCategories;
-
-            var query = Query.EQ("_id", ObjectId.Parse(noteToEdit.Id));
-            notes.Update(query, Builders.Update.Replace(note));
+            throw new NotImplementedException();
         }
 
         public void Delete(string id)
         {
-            notes.Remove(Query.EQ("_id", ObjectId.Parse(id)));
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return (from c in categories.AsQueryable()
-                    select c).ToList();
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Category> GetAllCategories(string[] categoryColors)
-        { 
-            var colorArray = new BsonArray(categoryColors);
-            var query = Query.In("Color", colorArray);
-
-            return categories.FindAs<Category>(query).ToList();
+        {
+            throw new NotImplementedException();
         }
 
         public void Dispose()

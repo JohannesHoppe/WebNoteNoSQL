@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using ServiceStack.Redis;
@@ -19,65 +20,37 @@ namespace WebNoteNoSQL.Models.Redis
         {
             NoteWithCategories note = NoteWithCategories.Convert(noteToAdd, newCategories);
 
-            using (var notes = redisClient.GetTypedClient<NoteWithCategories>())
-            {
-                note.Id = notes.GetNextSequence().AsString();
-                notes.Store(note);
-            }
+            throw new NotImplementedException();
         }
 
         public NoteWithCategories Read(string id)
         {
-            using (var notes = redisClient.GetTypedClient<NoteWithCategories>())
-            {
-                return notes.GetById(id);
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<NoteWithCategories> ReadAll()
         {
-            using (var notes = redisClient.GetTypedClient<NoteWithCategories>())
-            {
-                return notes.GetAll();
-            }
+            throw new NotImplementedException();
         }
 
         public void Update(Note noteToEdit, IEnumerable<Category> newCategories)
         {
-            using (var notes = redisClient.GetTypedClient<NoteWithCategories>())
-            {
-                NoteWithCategories note = Read(noteToEdit.Id);
-
-                note.Title = noteToEdit.Title;
-                note.Message = noteToEdit.Message;
-                note.Categories = newCategories;
-
-                notes.Store(note);
-            }
+            throw new NotImplementedException();
         }
 
         public void Delete(string id)
         {
-            using (var notes = redisClient.GetTypedClient<NoteWithCategories>())
-            {
-                notes.DeleteById(id);
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Category> GetAllCategories()
         {
-            using (var categories = redisClient.GetTypedClient<Category>())
-            {
-                return categories.GetAll();
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Category> GetAllCategories(string[] categoryIds)
         {
-            using (var categories = redisClient.GetTypedClient<Category>())
-            {
-                return categories.GetByIds(categoryIds);
-            }
+            throw new NotImplementedException();
         }
 
         #region Install Demo Content
