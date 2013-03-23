@@ -73,7 +73,8 @@ namespace WebNoteNoSQL.Models.MongoDb
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return categories.FindAllAs<Category>().ToList();
+            return (from c in categories.AsQueryable()
+                    select c).ToList();
         }
 
         public IEnumerable<Category> GetAllCategories(string[] categoryColors)
