@@ -1,7 +1,5 @@
 WebNoteNoSQL/**/obj
 WebNoteNoSQL/**/bin
-HadoopExamples/**/obj
-HadoopExamples/**/bin
 packages/
 *.user
 *.suo
