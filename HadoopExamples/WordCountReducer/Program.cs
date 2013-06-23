@@ -3,21 +3,20 @@ using System.Text.RegularExpressions;
 
 namespace WordCountReducer
 {
-  class Program
-  {
-    static void Main(string[] args)
+    internal class Program
     {
-      string line;
-      var regex = new Regex("[a-zA-Z]+");
- 
-      // Einlesen des Hadoop Datenstroms
-      while ((line = Console.ReadLine()) != null)
-      {
-        foreach (Match match in regex.Matches(line))
+        private static void Main(string[] args)
         {
-          // Schreiben in den Hadoop Datenstrom
-          Console.WriteLine("{0}\t1", match.Value.ToLower());
+            string line;
+            var regex = new Regex("[a-zA-Z]+");
+
+            while ((line = Console.ReadLine()) != null)
+            {
+                foreach (Match match in regex.Matches(line))
+                {
+                    Console.WriteLine("{0}\t1", match.Value.ToLower());
+                }
+            }
         }
-      }
     }
 }
