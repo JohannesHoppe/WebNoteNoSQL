@@ -121,6 +121,8 @@
     <Compile Include="TestDocument.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ExplorativeTests\MongoDb\footbag-shop.de-2013-06-22.csv" />
+    <None Include="ExplorativeTests\MongoDb\import_logs.cmd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +130,9 @@
       <Project>{38BF68D0-B4C6-4DBC-B7C0-0368E62ADA9B}</Project>
       <Name>WebNoteNoSQL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ExplorativeTests\MongoDb\map_reduce_in_console.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
