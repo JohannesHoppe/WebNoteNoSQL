@@ -6,9 +6,7 @@ fs.put() --> dwx_sessions.txt --> /data/in/dwx_sessions.txt
 runJar('/apps/hadoop-streaming.jar', '-files "asv://dwxhdinsight@dwxhdinsight.blob.core.windows.net/apps/WordCountMapper.exe,asv://dwxhdinsight@dwxhdinsight.blob.core.windows.net/apps/WordCountReducer.exe" -mapper "WordCountMapper.exe" -reducer "WordCountReducer.exe" -input "/data/in" -output "/data/out"')
 
 fs.read("/data/out") 
-
-
-
+fs.get("/data/out") 
 
 #rmr -skipTrash /apps/WordCountMapper.exe
 #rmr -skipTrash /apps/WordCountReducer.exe
