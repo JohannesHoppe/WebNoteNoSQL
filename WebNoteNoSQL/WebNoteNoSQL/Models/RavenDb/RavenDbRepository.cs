@@ -37,38 +37,40 @@ namespace WebNoteNoSQL.Models.RavenDb
         public void Create(Note noteToAdd, IEnumerable<Category> newCategories)
         {
             NoteWithCategories note = NoteWithCategories.Convert(noteToAdd, newCategories);
-
-            throw new NotImplementedException();
+            session.Store(note);
+            session.SaveChanges();
         }
 
         public NoteWithCategories Read(string id)
         {
-            throw new NotImplementedException();
+            return session.Load<NoteWithCategories>(id);
         }
 
         public IEnumerable<NoteWithCategories> ReadAll()
         {
-            throw new NotImplementedException();
+            return session.Query<NoteWithCategories>().ToList();
         }
 
         public void Update(Note noteToEdit, IEnumerable<Category> newCategories)
         {
-            throw new NotImplementedException();
+            Create(noteToEdit, newCategories);
         }
 
         public void Delete(string id)
         {
-            throw new NotImplementedException();
+            var note = session.Load<NoteWithCategories>(id);
+            session.Delete(note);
+            session.SaveChanges();
         }
 
         public IEnumerable<Category> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return session.Query<Category>().ToList();
         }
 
         public IEnumerable<Category> GetAllCategories(string[] categoryIds)
         {
-            throw new NotImplementedException();
+            return categoryIds == null ? GetAllCategories() : session.Load<Category>(categoryIds).AsEnumerable();
         }
 
         public void Dispose()
