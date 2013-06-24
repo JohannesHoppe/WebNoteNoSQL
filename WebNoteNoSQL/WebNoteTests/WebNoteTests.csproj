@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExplorativeTests\Infrastructure\ExploratoryTests.cs" />
+    <Compile Include="ExplorativeTests\MongoDb\HowToMapReduceWithMongoDb.cs" />
     <Compile Include="ExplorativeTests\MongoDb\HowToConnectAndUseMongoDb.cs" />
     <Compile Include="ExplorativeTests\MongoDb\HowToReadAndWriteWithMongoDb.cs" />
     <Compile Include="ExplorativeTests\RavenDb\EmbeddedModeRavenDb.cs" />
