@@ -1,22 +1,36 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace WordCountReducer
 {
-    internal class Program
+    class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             string line;
-            var regex = new Regex("[a-zA-Z]+");
+            string prevWord = null;
+            int count = 0;
 
             while ((line = Console.ReadLine()) != null)
             {
-                foreach (Match match in regex.Matches(line))
+                if (!line.Contains("\t")) { continue; }
+                    
+                var word = line.Split('\t')[0];
+                var cnt = Convert.ToInt32(line.Split('\t')[1]);
+
+                if (prevWord != word)
                 {
-                    Console.WriteLine("{0}\t1", match.Value.ToLower());
+                    if (prevWord != null) { 
+                        Console.WriteLine("{0}\t{1}", prevWord, count);
+                    }
+
+                    prevWord = word;
+                    count = cnt;
                 }
+                else
+                    count += cnt;
             }
+
+            Console.WriteLine("{0}\t{1}", prevWord, count);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Tests
                                         {
                                             consoleMock = new Mock<IConsole>();
                                             consoleMock.SetupSequence(console => console.ReadLine())
-                                                       .Returns("dies ist ein")
+                                                       .Returns("Dies ist ein")
                                                        .Returns("test 22! test");
                                             Program.Console = consoleMock.Object;
                                         };
