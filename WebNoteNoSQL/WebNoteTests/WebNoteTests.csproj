@@ -111,7 +111,7 @@
     <Compile Include="ExplorativeTests\MongoDb\HowToMapReduceWithMongoDb.cs" />
     <Compile Include="ExplorativeTests\MongoDb\HowToConnectAndUseMongoDb.cs" />
     <Compile Include="ExplorativeTests\MongoDb\HowToReadAndWriteWithMongoDb.cs" />
-    <Compile Include="ExplorativeTests\RavenDb\SearchIndex.cs" />
+    <Compile Include="ExplorativeTests\RavenDb\Logs_SearchIndex.cs" />
     <Compile Include="ExplorativeTests\RavenDb\EmbeddedModeRavenDb.cs" />
     <Compile Include="ExplorativeTests\RavenDb\HowToConnectAndUseRavenDb.cs" />
     <Compile Include="ExplorativeTests\RavenDb\HowToMapReduceWithRavenDb.cs" />
