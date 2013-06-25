@@ -44,12 +44,12 @@ namespace WebNoteTests.ExplorativeTests.RavenDb
                 "Logs/SearchIndex",
                 new IndexDefinitionBuilder<LogEntry, Logs_SearchIndex.Result>
                 {
-                    Map =  logEntries => from entry in logEntries
-                                         select new Logs_SearchIndex.Result
-                                         { 
-                                             Country = entry.Country,
-                                             Size = entry.Size,
-                                             Count = 1
+                    Map = logEntries => from entry in logEntries
+                                        select new Logs_SearchIndex.Result
+                                        { 
+                                            Country = entry.Country,
+                                            Size = entry.Size,
+                                            Count = 1
                                          },
 
                     Reduce = results => from entry in results
