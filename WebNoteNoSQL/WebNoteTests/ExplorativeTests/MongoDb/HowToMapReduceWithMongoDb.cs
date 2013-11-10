@@ -39,7 +39,7 @@ namespace WebNoteTests.ExplorativeTests.MongoDb
 
             string reduce = @"        
                 function(key, values) {
-                    var result = {count: 0, totalMinutes: 0 };
+                    var result = {count: 0, size: 0 };
 
                     values.forEach(function(value){               
                         result.count += value.count;
